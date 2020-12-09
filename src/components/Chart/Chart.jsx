@@ -14,11 +14,12 @@ const Chart = ({data: {confirmed, recovered, deaths}, country }) => {
         }
         
         fetchAPI();
+        
   
     }, []);
 
     const lineChart = ( //lineChart is for the gobal data/gobal scale
-        dailyData.length !== 0
+        dailyData.length
          ? ( // if dailyData isn't = 0, then show line chart
             <Line 
               data={{ 
