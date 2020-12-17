@@ -16,8 +16,6 @@ const Chart = ({data: {confirmed, recovered, deaths, lastUpdate}, country }) => 
             setDailyData(lineData);
         }
         fetchAPI();
-
-        console.log("THIS IS DAILYDATA: ", dailyData)
   
     }, []);
 
@@ -33,19 +31,20 @@ const Chart = ({data: {confirmed, recovered, deaths, lastUpdate}, country }) => 
                     borderColor: '#3333ff',
                     fill: true,
                   }, {
-                    data: dailyData.map((data) => data.recovered),
+                    data: dailyData.map(({recovered}) => recovered),
                     label: 'Recovered',
                     borderColor: 'green',
                     backgroundColor: 'rgba(0, 255, 0, 0.5)',
                     fill: true,
                   }, {
-                    data: dailyData.map((data) => data.deaths),
+                    data: dailyData.map(({deaths}) => deaths),
                     label: 'Deaths',
                     borderColor: 'red',
                     backgroundColor: 'rgba(255, 0, 0, 0.5)',
                     fill: true,
                   }
                 ],
+                
             }}
           />) : null
     );
