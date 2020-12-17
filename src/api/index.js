@@ -33,7 +33,7 @@ export const fetchDailyData = async () => {
 			confirmed: data.confirmed,
 			deaths: data.deaths,
 			recovered: data.recovered,
-			date: data.updated_at,
+			date: data.date,
 		}))
 
 		
