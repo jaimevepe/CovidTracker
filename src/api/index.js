@@ -25,19 +25,18 @@ export const fetchData = async (country) => {
 
 // Fetch Data for charts/Line graph
 export const fetchDailyData = async () => {
-    try {
-		const { data } = await axios.get(`https://api.covidtracking.com/v1/us/daily.json`);
+    try { 
+
+		const { data: {data} } = await axios.get("https://corona-api.com/timeline");
 		
-		const modifiedData = data.map((dailyData) => ({
-			confirmed: dailyData.positive,
-			deaths: dailyData.death,
-			date: dailyData.dateChecked,
-		}));
+		return data.map((data) => ({
+			confirmed: data.confirmed,
+			deaths: data.deaths,
+			recovered: data.recovered,
+			date: data.updated_at,
+		}))
 
-		return modifiedData
-
-		// return data.map(({ positive, recovered, death, dateChecked: date }) => ({ confirmed: positive, recovered, deaths: death, date }));
-
+		
     } catch(error) {
         console.log("Error from fetchDailyData API: ", error)
     }

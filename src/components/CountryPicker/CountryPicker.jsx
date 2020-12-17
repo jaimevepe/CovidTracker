@@ -20,7 +20,7 @@ import { fetchCountries } from '../../api'
     return (
         <FormControl className={styles.formControl} >
             <NativeSelect default='' onChange={(e) => handleCountryChange(e.target.value)}>
-                <option value="" >All U.S.A States</option>
+                <option value="" >Show Line Graph for U.S Data</option>
                 {fetchedCountries.map((country, i) => <option value={country} key={i} > {country} </option>)}
             </NativeSelect>
         </FormControl>
